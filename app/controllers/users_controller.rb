@@ -1,0 +1,27 @@
+class UsersController < Clearance::UsersController
+
+  # index = default
+
+  def new
+    @user = user_from_params
+    render template: "users/new"
+  end
+
+  def create
+    @user = User.new(user_from_params)
+
+    if @user.save
+      sign_in @user
+      redirect_back_or url_after_create
+    else
+      render template: "statics/home"
+    end
+  end
+
+  private
+  def user_from_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password)
+  end
+
+
+end

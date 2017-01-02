@@ -1,0 +1,10 @@
+<h1>AirBnB-clone Homepage</h1>
+
+<!-- if want for homepage, write here -->
+<% if signed_in? %>
+	<h3>Welcome <%= @users.first_name %> <%= @users.last_name %></h3>
+<% else %>
+	<h3>Welcome!</h3>
+	<p id:"sign_in_link"><%= link_to 'Sign in', sign_in_path %></p>
+  <p id:"sign_up_link"><%= link_to 'Sign up', sign_up_path %></p>
+<% end %>
