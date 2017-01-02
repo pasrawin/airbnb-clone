@@ -23,8 +23,14 @@
   <% if signed_in? %>
     Signed in as: <%= current_user.email %>
     <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <div
+      class="fb-like"
+      data-share="true"
+      data-width="450"
+      data-show-faces="true">
+    </div>
   <% else %>
-      <%# link_to 'Sign in', sign_in_path %>
+      <% link_to 'Home', home_path %>
     </div>
   <% end %>
 
