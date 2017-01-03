@@ -11,8 +11,7 @@ class ListingsController < ApplicationController
 	end
 
 	def create
-		#listings???
-
+		#listings<<many listings belong to that user
 		@listing = current_user.listings.new(listing_params)
 		if @listing.save
 			redirect_to listings_path
