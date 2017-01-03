@@ -1,5 +1,8 @@
 class Listing < ActiveRecord::Base
+	
 	belongs_to :user
+	has_many :bookings
+
 	self.inheritance_column = "Property Type"
 
 	def self.search(search)
