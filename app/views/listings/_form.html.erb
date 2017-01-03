@@ -6,6 +6,16 @@
 	</div>
 
 	<div class="text-field">
+		<%= form.label :city %>
+	  <%= form.text_field :city, type: 'string' %>
+	</div>
+
+	<div class="text-field">
+		<%= form.label :country %>
+	  <%= form.text_field :country, type: 'string' %>
+	</div>
+
+	<div class="text-field">
 		<%= form.label :address %>
 	  <%= form.text_area :address, type: 'text' %>
 	</div>
@@ -21,7 +31,7 @@
 	</div>
 
 	<div class="text-field">
-	  <%= form.label :type %>
+	  <%= form.label :property_type %>
 	  <%= form.text_field :type, type: 'string' %>
 	</div>
 
