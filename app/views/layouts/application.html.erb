@@ -17,9 +17,7 @@
 
 <body> 
 
-  <%= yield %>
-
-<!-- navigation bar (### under yield) -->
+<!-- navigation bar (### above yield) -->
   <% if signed_in? %>
     Signed in as: <%= current_user.email %>
     <%= button_to 'Sign out', sign_out_path, method: :delete %>
@@ -34,12 +32,13 @@
     </div>
   <% end %>
 
+  <%= yield %>
+
   <div id="flash">
     <% flash.each do |key, value| %>
       <div class="flash <%= key %>"><%= value %></div>
     <% end %>
   </div>
-
 
 </body>
 </html>

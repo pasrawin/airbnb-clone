@@ -1,4 +1,8 @@
 <h3> Title: <%= @listing.title %> </h3>
+
+<div>
+	Posted By: <%= @listing.user.email  %>
+</div>
 <h5> Address: <%= @listing.address %> </h5>
 <h5> Status: <%= @listing.status %> </h5>
 <h5> Price: <%= @listing.price %> </h5>
