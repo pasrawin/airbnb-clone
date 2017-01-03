@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   #In app/models/user.rb
 
  	has_many :authentications, :dependent => :destroy
+ 	has_many :listings
  
  	def self.create_with_auth_and_hash(authentication, auth_hash)
  		user = User.create!(

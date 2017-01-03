@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'statics#home', as: "home"
+  # root 'statics#home', as: "home"
+  root 'listings#index', as: "home"
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+  resources :listings
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

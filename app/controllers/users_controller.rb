@@ -1,6 +1,8 @@
 class UsersController < Clearance::UsersController
 
-  # index = default
+  before_action
+
+  # index = clearance default
 
   def new
     @user = user_from_params
