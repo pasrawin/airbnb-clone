@@ -4,13 +4,18 @@
 	Posted By: <%= @listing.user.email  %>
 </div>
 <div>
+	<% @listing.photos.each do |photo| %>
+		<%= image_tag photo %>
+	<% end %>
+</div>
+<div>
 	<p> City: <%= @listing.city %> </p>
 	<p> Country: <%= @listing.country %> </p>
 	<p> Status: <%= @listing.status %> </p>
 	<p> Price: <%= @listing.price %> </p>
 	<p> Property Type: <%= @listing.type %> </p>
 <% if @listing.user == current_user %>
-	<%= button_to "Edit", edit_listing_path(@listing) %>
+	<%= button_to "Edit", edit_listing_path(@listing),method: "get" %>
 <% end %>
 </div>
 
