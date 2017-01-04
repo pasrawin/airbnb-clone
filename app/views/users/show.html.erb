@@ -7,7 +7,10 @@
 <table>
 	<% @bookings.each do |booking| %>
 		<tr>
-			<td><h5><%= link_to booking.listing.title, booking.listing %></h5></td>
+			<td><h3><%= link_to booking.listing.title, booking.listing %></h3></td>
+		</tr>
+		<tr>
+			<td><%= booking.listing.city %> <%= booking.listing.country %></td>
 		</tr>
 		<tr>
 			<td>Date: <%= booking.start_date.strftime('%d %B %Y') %> - <%= booking.end_date.strftime('%d %B %Y') %></td>

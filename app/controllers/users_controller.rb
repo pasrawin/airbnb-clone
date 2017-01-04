@@ -26,8 +26,18 @@ class UsersController < Clearance::UsersController
   end
 
   def edit
+    @user = current_user
   end
 
+  def update
+    # if @user.update(user_from_params)
+    #   flash[:success] = "Successfully updated your profile"
+    # else
+    #   flash[:danger] = "Error updated your profile"
+    # end
+    # redirect_to current_user
+  end
+  
   private
   def user_from_params
     params.require(:user).permit(:first_name, :last_name, :email, :password)
