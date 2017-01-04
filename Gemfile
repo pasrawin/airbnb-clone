@@ -28,6 +28,8 @@ gem 'clearance'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'country-select'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 
 # Use ActiveModel has_secure_password

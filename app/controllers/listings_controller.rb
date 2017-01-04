@@ -26,9 +26,11 @@ class ListingsController < ApplicationController
 	end
 
 	def edit
+		@listing = Listing.find(params[:id])
 	end
 
 	def update
+
 		if @listing.update(listing_params)
 			flash[:success] = "Successfully updated the list"
 			redirect_to @listing
@@ -43,7 +45,7 @@ class ListingsController < ApplicationController
 	end
 
 	def listing_params
-		params.require(:listing).permit(:title, :city, :country, :address, :status, :price, :type)
+		params.require(:listing).permit(:title, :city, :country, :address, :status, :price, :type, {photos: []})
 	end
 
 	def search
