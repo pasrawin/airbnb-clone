@@ -1,5 +1,11 @@
 <%= form_for [@listing, @booking] do |form| %>
+	<% if @errors.present? %>
+		<div>
+			<%= @errors %>
+		</div>
+	<% end %>
 <%# form.hidden_field :listing_id, value: @listing.id %>
+
 	<div>
 		<%= form.label :start_date %>
   	<%= form.date_field :start_date %>

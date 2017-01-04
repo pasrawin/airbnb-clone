@@ -10,7 +10,8 @@ class BookingsController < ApplicationController
 			redirect_to home_path
 			# redirect_to current_user -- undefined method `user_url' for #<BookingsController:0x007fc3255ab348> Did you mean? users_url
 		else
-			render "listing/show"
+			@errors = @booking.errors.full_messages
+			render "listings/show"
 		end
 		
 	end
