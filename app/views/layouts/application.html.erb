@@ -19,8 +19,13 @@
 
 <!-- navigation bar (### above yield) -->
   <% if signed_in? %>
-    Signed in as: <%= current_user.email %>
+    Signed in as: <%= current_user.email %> ---
+    <%= link_to "Home", home_path %>
+    <%= link_to "My Profile", user_path(current_user.id) %>
+    <%= link_to "Show List", listings_path %>
+    <%= link_to "Create List", new_listing_path %>
     <%= button_to 'Sign out', sign_out_path, method: :delete %>
+ 
     <div
       class="fb-like"
       data-share="true"

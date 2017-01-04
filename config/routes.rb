@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # root 'statics#home', as: "home"
-  root 'listings#index', as: "home"
+  root 'statics#home', as: "home"
+  
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resource :session, controller: "clearance/sessions", only: [:create]
 
   ### rewriting user_controller for create -- changing controller from clearance to mine
-  resources :users, controller: "users", only: [:create] do
+  resources :users, controller: "users", only: [:show, :edit, :create, :update] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
@@ -20,7 +20,12 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
-  resources :listings
+  resources :listings do
+    resources :bookings, only: [:create]
+  end
+
+  resources :bookings, only: [:destroy]
+  # get "/index" => "listings#search", as: "search"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

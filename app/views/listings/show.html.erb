@@ -3,9 +3,15 @@
 <div>
 	Posted By: <%= @listing.user.email  %>
 </div>
-<h5> Address: <%= @listing.address %> </h5>
-<h5> Status: <%= @listing.status %> </h5>
-<h5> Price: <%= @listing.price %> </h5>
-<h5> Property Type: <%= @listing.type %> </h5>
+<div>
+	<p> City: <%= @listing.city %> </p>
+	<p> Country: <%= @listing.country %> </p>
+	<p> Status: <%= @listing.status %> </p>
+	<p> Price: <%= @listing.price %> </p>
+	<p> Property Type: <%= @listing.type %> </p>
 
-<%= link_to "Edit", edit_listing_path(@listing) %>
+<%= button_to "Edit", edit_listing_path(@listing) %>
+</div>
+
+<h3> Booking <%= @listing.title %> ? </h3>
+<%= render 'bookings/form' %>

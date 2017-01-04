@@ -21,6 +21,8 @@ class ListingsController < ApplicationController
 	def show
 		#rake routes tells the route
 		@listing = Listing.find_by_id(params[:id])
+		@booking = @listing.bookings.new
+		# @total_price = @booking.end_date - @booking.start_date
 	end
 
 	def edit
@@ -41,10 +43,11 @@ class ListingsController < ApplicationController
 	end
 
 	def listing_params
-		params.require(:listing).permit(:title, :address, :status, :price, :type)
+		params.require(:listing).permit(:title, :city, :country, :address, :status, :price, :type)
 	end
 
-
-
+	def search
+  	@listings = Listing.search(params[:search])
+  end
 
 end
