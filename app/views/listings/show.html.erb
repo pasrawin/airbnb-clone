@@ -9,8 +9,9 @@
 	<p> Status: <%= @listing.status %> </p>
 	<p> Price: <%= @listing.price %> </p>
 	<p> Property Type: <%= @listing.type %> </p>
-
-<%= button_to "Edit", edit_listing_path(@listing) %>
+<% if @listing.user == current_user %>
+	<%= button_to "Edit", edit_listing_path(@listing) %>
+<% end %>
 </div>
 
 <h3> Booking <%= @listing.title %> ? </h3>

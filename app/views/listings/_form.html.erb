@@ -34,6 +34,11 @@
 	  <%= form.label :property_type %>
 	  <%= form.text_field :type, type: 'string' %>
 	</div>
-
+	
+	<div class="text-field">
+	  <%= form.label :photos %>
+		<%= form.file_field :photos, multiple: true, class: "form-control" %>
+	</div>
+	
 	<%= form.submit "Submit" %>
 <% end %>
