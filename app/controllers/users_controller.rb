@@ -20,6 +20,14 @@ class UsersController < Clearance::UsersController
     end
   end
 
+  def show
+    @user = current_user
+    @bookings = @user.bookings
+  end
+
+  def edit
+  end
+
   private
   def user_from_params
     params.require(:user).permit(:first_name, :last_name, :email, :password)

@@ -7,8 +7,7 @@ class BookingsController < ApplicationController
 		@booking.listing = @listing
 		if @booking.save
 			flash[:success] = "Successfully booked #{@listing.title} on #{@booking.start_date} to #{@booking.end_date}"
-			redirect_to home_path
-			# redirect_to current_user -- undefined method `user_url' for #<BookingsController:0x007fc3255ab348> Did you mean? users_url
+			redirect_to current_user
 		else
 			@errors = @booking.errors.full_messages
 			render "listings/show"
@@ -17,6 +16,9 @@ class BookingsController < ApplicationController
 	end
 
 	def destroy
+		@booking = Booking.find(params[:id])
+		@booking.destroy
+		redirect_to current_user
 	end
 
 	def booking_params

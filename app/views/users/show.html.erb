@@ -1,1 +1,26 @@
-show
+<h1>My Profile</h1>
+
+<h3>Welcome <%= @user.first_name %> <%= @user.last_name %></h3>
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+
+<h3>Your Reservations</h3>
+<table>
+	<% @bookings.each do |booking| %>
+		<tr>
+			<td><h5><%= link_to booking.listing.title, booking.listing %></h5></td>
+		</tr>
+		<tr>
+			<td>Date: <%= booking.start_date.strftime('%d %B %Y') %> - <%= booking.end_date.strftime('%d %B %Y') %></td>
+		</tr>
+		<tr>
+			<td>Price: <%= booking.listing.price %>/day</td>
+		</tr>
+		<tr>
+			<td>Total: <%= booking.total_price %> JPY</td>
+		</tr>
+		<tr>
+			<td><%= link_to "Cancel Booking", booking, method: :delete %></td>
+		</tr>
+		
+	<% end %>
+</table>

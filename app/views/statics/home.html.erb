@@ -3,6 +3,7 @@
 <!-- if want for homepage, write here -->
 <% if signed_in? %>
 	<h3>Welcome <%= @users.first_name %> <%= @users.last_name %></h3>
+	
 <% else %>
 	<h3>Welcome!</h3>
 	<p id:"home_link"><%= link_to 'Home', home_path %></p>

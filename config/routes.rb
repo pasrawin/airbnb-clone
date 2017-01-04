@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resource :session, controller: "clearance/sessions", only: [:create]
 
   ### rewriting user_controller for create -- changing controller from clearance to mine
-  resources :users, controller: "users", only: [:create] do
+  resources :users, controller: "users", only: [:show, :edit, :create] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
