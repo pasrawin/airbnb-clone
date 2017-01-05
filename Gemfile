@@ -30,6 +30,8 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'country-select'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem "letter_opener", :group => :development
+gem 'sidekiq'
 
 
 # Use ActiveModel has_secure_password
