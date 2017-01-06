@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:destroy] 
+
+  get '/auth/failure' => "statics#home"
 end

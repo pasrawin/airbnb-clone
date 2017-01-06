@@ -3,10 +3,12 @@ class BookingsController < ApplicationController
 	def create
 		@listing = Listing.find(params[:listing_id])
 		@booking = current_user.bookings.new(booking_params)
-
 		@booking.listing = @listing
+
 		if @booking.save
-			flash[:success] = "Successfully booked #{@listing.title} on #{@booking.start_date} to #{@booking.end_date}"
+			ReservationJob.perform_later(current_user, @listing.user, @booking.id)
+			# ReservationMailer.booking_email(current_user, @listing.user, @booking.id).deliver_now
+			# flash[:success] = "Successfully booked #{@listing.title} on #{@booking.start_date} to #{@booking.end_date}"
 			redirect_to current_user
 		else
 			@errors = @booking.errors.full_messages
@@ -22,6 +24,6 @@ class BookingsController < ApplicationController
 	end
 
 	def booking_params
-	params.require(:booking).permit(:start_date, :end_date)
+		params.require(:booking).permit(:start_date, :end_date)
 	end
 end
