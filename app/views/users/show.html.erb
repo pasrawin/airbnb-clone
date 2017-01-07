@@ -19,7 +19,10 @@
 			<td>Price: <%= booking.listing.price %>/day</td>
 		</tr>
 		<tr>
-			<td>Total: <%= booking.total_price %> JPY</td>
+			<td>Total: <%= booking.total_price_calc %> JPY</td>
+		</tr>
+		<tr>
+			<td><%= link_to "Make Payment", braintree_new_path %></td>
 		</tr>
 		<tr>
 			<td><%= link_to "Cancel Booking", booking, method: :delete %></td>

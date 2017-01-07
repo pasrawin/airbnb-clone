@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'braintree/new'
+
   root 'statics#home', as: "home"
   
 
@@ -27,4 +29,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:destroy] 
 
   get '/auth/failure' => "statics#home"
+
+  post 'braintree/checkout'
 end
